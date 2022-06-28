@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Li MAK Zakigonj Unicode';
+    src: url('fonts/Li-MAK-Zakigonj-Unicode.eot');
+    src: url('fonts/Li-MAK-Zakigonj-Unicode.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Li-MAK-Zakigonj-Unicode.woff2') format('woff2'),
+         url('fonts/Li-MAK-Zakigonj-Unicode.woff') format('woff'),
+         url('fonts/Li-MAK-Zakigonj-Unicode.ttf')  format('truetype'),
+         url('fonts/Li-MAK-Zakigonj-Unicode.svg#Li MAK Zakigonj Unicode') format('svg');
+}

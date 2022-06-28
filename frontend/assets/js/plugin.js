@@ -40,3 +40,206 @@
     https://github.com/hernansartorio/jquery-nice-select
     Made by Hernán Sartorio  */
 !function(e){e.fn.niceSelect=function(t){function s(t){t.after(e("<div></div>").addClass("nice-select").addClass(t.attr("class")||"").addClass(t.attr("disabled")?"disabled":"").attr("tabindex",t.attr("disabled")?null:"0").html('<span class="current"></span><ul class="list"></ul>'));var s=t.next(),n=t.find("option"),i=t.find("option:selected");s.find(".current").html(i.data("display")||i.text()),n.each(function(t){var n=e(this),i=n.data("display");s.find("ul").append(e("<li></li>").attr("data-value",n.val()).attr("data-display",i||null).addClass("option"+(n.is(":selected")?" selected":"")+(n.is(":disabled")?" disabled":"")).html(n.text()))})}if("string"==typeof t)return"update"==t?this.each(function(){var t=e(this),n=e(this).next(".nice-select"),i=n.hasClass("open");n.length&&(n.remove(),s(t),i&&t.next().trigger("click"))}):"destroy"==t?(this.each(function(){var t=e(this),s=e(this).next(".nice-select");s.length&&(s.remove(),t.css("display",""))}),0==e(".nice-select").length&&e(document).off(".nice_select")):console.log('Method "'+t+'" does not exist.'),this;this.hide(),this.each(function(){var t=e(this);t.next().hasClass("nice-select")||s(t)}),e(document).off(".nice_select"),e(document).on("click.nice_select",".nice-select",function(t){var s=e(this);e(".nice-select").not(s).removeClass("open"),s.toggleClass("open"),s.hasClass("open")?(s.find(".option"),s.find(".focus").removeClass("focus"),s.find(".selected").addClass("focus")):s.focus()}),e(document).on("click.nice_select",function(t){0===e(t.target).closest(".nice-select").length&&e(".nice-select").removeClass("open").find(".option")}),e(document).on("click.nice_select",".nice-select .option:not(.disabled)",function(t){var s=e(this),n=s.closest(".nice-select");n.find(".selected").removeClass("selected"),s.addClass("selected");var i=s.data("display")||s.text();n.find(".current").text(i),n.prev("select").val(s.data("value")).trigger("change")}),e(document).on("keydown.nice_select",".nice-select",function(t){var s=e(this),n=e(s.find(".focus")||s.find(".list .option.selected"));if(32==t.keyCode||13==t.keyCode)return s.hasClass("open")?n.trigger("click"):s.trigger("click"),!1;if(40==t.keyCode){if(s.hasClass("open")){var i=n.nextAll(".option:not(.disabled)").first();i.length>0&&(s.find(".focus").removeClass("focus"),i.addClass("focus"))}else s.trigger("click");return!1}if(38==t.keyCode){if(s.hasClass("open")){var l=n.prevAll(".option:not(.disabled)").first();l.length>0&&(s.find(".focus").removeClass("focus"),l.addClass("focus"))}else s.trigger("click");return!1}if(27==t.keyCode)s.hasClass("open")&&s.trigger("click");else if(9==t.keyCode&&s.hasClass("open"))return!1});var n=document.createElement("a").style;return n.cssText="pointer-events:auto","auto"!==n.pointerEvents&&e("html").addClass("no-csspointerevents"),this}}(jQuery);
+
+
+
+// Alert box design by Igor Ferrão de Souza: https://www.linkedin.com/in/igor-ferr%C3%A3o-de-souza-4122407b/
+
+const cuteAlert = ({
+    type,
+    title,
+    message,
+    img,
+    buttonText = 'OK',
+    confirmText = 'OK',
+    vibrate = [],
+    playSound = null,
+    cancelText = 'Cancel',
+    closeStyle,
+  }) => {
+    return new Promise(resolve => {
+      const existingAlert = document.querySelector('.alert-wrapper');
+  
+      if (existingAlert) {
+        existingAlert.remove();
+      }
+  
+      const body = document.querySelector('body');
+  
+      const scripts = document.getElementsByTagName('script');
+  
+      let src = 'assets';
+  
+      for (let script of scripts) {
+        if (script.src.includes('cute-alert.js')) {
+          src = script.src.substring(0, script.src.lastIndexOf('/'));
+        }
+      }
+  
+      let btnTemplate = `
+      <button class="alert-button ${type}-bg ${type}-btn">${buttonText}</button>
+      `;
+  
+      if (type === 'question') {
+        btnTemplate = `
+        <div class="question-buttons">
+          <button class="confirm-button ${type}-bg ${type}-btn">${confirmText}</button>
+          <button class="cancel-button error-bg error-btn">${cancelText}</button>
+        </div>
+        `;
+      }
+  
+      if (vibrate.length > 0) {
+        navigator.vibrate(vibrate);
+      }
+  
+      if (playSound !== null) {
+        let sound = new Audio(playSound);
+        sound.play();
+      }
+  
+      const template = `
+      <div class="alert-wrapper">
+        <div class="alert-frame">
+          ${img !== '' ? '<div class="alert-header ' + type + '-bg">' : '<div>'}
+            <span class="alert-close ${
+              closeStyle === 'circle'
+                ? 'alert-close-circle'
+                : 'alert-close-default'
+            }">X</span>
+            ${img !== '' ? '<img class="alert-img" src="' + src + '/' + img + '" />' : ''}
+          </div>
+          <div class="alert-body">
+            <span class="alert-title">${title}</span>
+            <span class="alert-message">${message}</span>
+            ${btnTemplate}
+          </div>
+        </div>
+      </div>
+      `;
+  
+      body.insertAdjacentHTML('afterend', template);
+  
+      const alertWrapper = document.querySelector('.alert-wrapper');
+      const alertFrame = document.querySelector('.alert-frame');
+      const alertClose = document.querySelector('.alert-close');
+  
+      if (type === 'question') {
+        const confirmButton = document.querySelector('.confirm-button');
+        const cancelButton = document.querySelector('.cancel-button');
+  
+        confirmButton.addEventListener('click', () => {
+          alertWrapper.remove();
+          resolve('confirm');
+        });
+  
+        cancelButton.addEventListener('click', () => {
+          alertWrapper.remove();
+          resolve();
+        });
+      } else {
+        const alertButton = document.querySelector('.alert-button');
+  
+        alertButton.addEventListener('click', () => {
+          alertWrapper.remove();
+          resolve('ok');
+        });
+      }
+  
+      alertClose.addEventListener('click', () => {
+        alertWrapper.remove();
+        resolve('close');
+      });
+  
+  /*     alertWrapper.addEventListener('click', () => {
+        alertWrapper.remove();
+        resolve();
+      }); */
+  
+      alertFrame.addEventListener('click', e => {
+        e.stopPropagation();
+      });
+    });
+  };
+  
+  const cuteToast = ({ type, title, message, timer = 5000,  vibrate = [], playSound = null }) => {
+    return new Promise(resolve => {
+      const body = document.querySelector('body');
+  
+      const scripts = document.getElementsByTagName('script');
+  
+      let src = 'assets';
+  
+      for (let script of scripts) {
+        if (script.src.includes('cute-alert.js')) {
+          src = script.src.substring(0, script.src.lastIndexOf('/'));
+        }
+      }
+  
+      let templateContainer = document.querySelector('.toast-container');
+  
+      if (!templateContainer) {
+        body.insertAdjacentHTML(
+          'afterend',
+          '<div class="toast-container"></div>',
+        );
+        templateContainer = document.querySelector('.toast-container');
+      }
+  
+      const toastId = id();
+  
+      const templateContent = `
+      <div class="toast-content ${type}-bg" id="${toastId}-toast-content">
+        <div>
+          <div class="toast-frame">
+            <div class="toast-body">
+              <img class="toast-body-img" src="${src}/img/${type}.svg" />'
+              <div class="toast-body-content">
+                <span class="toast-title">${title}</span>
+                <span class="toast-message">${message}</span>
+              </div>
+              <div class="toast-close" id="${toastId}-toast-close">X</div>
+            </div>
+          </div>
+          <div class="toast-timer ${type}-timer"  style="animation: timer${timer}ms linear;>
+        </div>
+      </div>
+      `;
+  
+      const toasts = document.querySelectorAll('.toast-content');
+  
+      if (toasts.length) {
+        toasts[0].insertAdjacentHTML('beforebegin', templateContent);
+      } else {
+        templateContainer.innerHTML = templateContent;
+      }
+  
+      const toastContent = document.getElementById(`${toastId}-toast-content`);
+  
+      if (vibrate.length > 0) {
+        navigator.vibrate(vibrate);
+      }
+  
+      if (playSound !== null) {
+        let sound = new Audio(playSound);
+        sound.play();
+      }
+  
+      setTimeout(() => {
+        toastContent.remove();
+        resolve();
+      }, timer);
+  
+      const toastClose = document.getElementById(`${toastId}-toast-close`);
+  
+      toastClose.addEventListener('click', () => {
+        toastContent.remove();
+        resolve();
+      });
+    });
+  };
+  
+  const id = () => {
+    return '_' + Math.random().toString(36).substr(2, 9);
+  };
+  

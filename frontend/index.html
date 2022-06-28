@@ -8,6 +8,8 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="assets/css/plugin.css">
     <link rel="stylesheet" href="assets/css/main.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
     
@@ -20,38 +22,42 @@
                     </div>
                     <div class="login">
                         <ul>
-                            <li><a href="#" class="btn" id="login"><i class="icofont-contact-add"></i> Register</a></li>  
-                            <li><a href="#" class="btn" id="register"><i class="icofont-login"></i> Login</a></li>  
+                            <li><a href="javascript:void(0)" class="btn" id="register" onclick="openModal('registermodal')"><i class="icofont-contact-add"></i> Register</a></li>  
+                            <li><a href="javascript:void(0)" class="btn" id="login" onclick="openModal('loginmodal')"><i class="icofont-login"></i> Login</a></li>  
                         </ul>
                     </div>
                     <div class="nav">
                         <ul>
-                            <li><a  href="#">Help</a></li>
-                            <li><a href="#">Ads</a></li>
-                            <li><a href="#">Contact</a></li>    
+                            <li><a  href="#">Home</a></li>
+                            <li><a  href="search.html">Search</a></li>
+                            <li><a  href="#">Pricing</a></li>
+                            <li><a href="#">Contact</a></li>   
                         </ul>
                     </div>
                     
                 </div>
             </div>
         </div>
-        <div class="hero" data-vbg="https://www.youtube.com/watch?v=uKnU7ks_AR0">
+        <div class="hero">
+            <div  data-vbg="https://www.youtube.com/watch?v=uKnU7ks_AR0" class="videobg"></div>
             <div class="hero-overlay"></div>
             <div class="warraper">
                 <div class="container ">
                     <!-- ROW -->
                     <div class="row">
+                        
                         <div class="hero-content">
-                            <h4 class="sm-title">in- en verkoop van auto's</h4>
-                            <h1 class="title">Uw occassiondealer <br> uit vaassen</h1>
-                                
+                            <h4 class="hero-sm-title">জীবন সঙ্গী খোঁজা নিয়ে ঝামেলা?</h4>
+                            <h1 class="hero-title">খুজে নিন আপনার মনমত<br>জীবন সাথী</h1>
+                              
                             <form action="search.html" method="GET">
+                                <div class="lookingfor">Search life partner</div>
                                 <div class="row">
                                     <div class="gender">
                                         <div class="box">
                                             <label>Looking for</label>
                                             <select class="hero-filter-dp" name="gender">
-                                                <option value="" selected="">All Gender</option>
+                                                <option value="" selected>All Gender</option>
                                                 <option value="male">Male</option>                                                           
                                                 <option value="female">Female</option>                                                           
                                                 <option value="common">Common</option>                                                           
@@ -60,58 +66,56 @@
                                     </div>
                                     <div class="bhomemodel">
                                         <div class="box">
-                                            <label>Age</label>
-                                            <select class="hero-filter-dp" name="model" style="display: none;">
-                                                <option value="" selected="">All ages</option>
-                                                <option value="">Upto 18</option>
-                                                <option value="">Upto 19</option>
-                                                <option value="">Upto 20</option>
-                                                <option value="">Upto 21</option>
-                                                <option value="">Upto 22</option>
-                                                <option value="">Upto 23</option>
-                                                <option value="">Upto 24</option>
-                                                <option value="">Upto 25</option>
-                                                <option value="">Upto 26</option>
-                                                <option value="">Upto 27</option>
-                                                <option value="">Upto 28</option>
-                                                <option value="">Upto 29</option>
-                                                <option value="">Upto 30</option>
+                                            <label for="ages">Age</label>
+                                            <select class="hero-filter-dp" name="ages">
+                                                <option value="" selected>All ages</option>
+                                                <option value="18">Upto 18</option>
+                                                <option value="19">Upto 19</option>
+                                                <option value="20">Upto 20</option>
+                                                <option value="21">Upto 21</option>
+                                                <option value="22">Upto 22</option>
+                                                <option value="23">Upto 23</option>
+                                                <option value="24">Upto 24</option>
+                                                <option value="25">Upto 25</option>
+                                                <option value="26">Upto 26</option>
+                                                <option value="27">Upto 27</option>
+                                                <option value="28">Upto 28</option>
+                                                <option value="29">Upto 29</option>
+                                                <option value="30">Upto 30</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="religion">
                                         <div class="box">
                                             <label>Reigion</label>
-                                            <select class="hero-filter-dp" name="transmissie">
-                                                <option value="" selected="">All religion</option>
-                                                <option value="H">Hindu</option>                                                            
-                                                <option value="H">Muslim</option>                                                            
-                                                <option value="H">Christian</option>                                                            
-                                                <option value="H">Budhist</option>                                                            
-                                                <option value="H">Others</option>                                                            
+                                            <select class="hero-filter-dp" name="religion">
+                                                <option value="" selected>All religion</option>
+                                                <option value="Hindu">Hindu</option>                                                            
+                                                <option value="Muslim">Muslim</option>                                                            
+                                                <option value="Christian">Christian</option>                                                            
+                                                <option value="Budhist">Budhist</option>                                                            
+                                                <option value="Others">Others</option>                                                            
                                             </select>
                                         </div>
                                     </div>
                                     <div class="profession">
                                         <div class="box">
                                             <label>Profession</label>
-                                            <select class="hero-filter-dp" name="transmissie">
-                                                <option value="" selected="">All Profession</option>                                                            
-                                                <option value="" selected="">Doctor</option>                                                            
-                                                <option value="" selected="">Engineer</option>                                                            
-                                                <option value="" selected="">Banker</option>                                                            
-                                                <option value="" selected="">Programmer</option>                                                            
-                                                <option value="" selected="">Private Service Holder</option>                                                            
-                                                <option value="" selected="">Business Owner</option>                                                            
-                                                <option value="" selected="">CEO</option>                                                            
-                                                <option value="" selected="">Founder</option>                                                            
+                                            <select class="hero-filter-dp" name="profession">
+                                                <option value="" selected>All Profession</option>                                                            
+                                                <option value="Doctor">Doctor</option>                                                            
+                                                <option value="Engineer">Engineer</option>                                                            
+                                                <option value="Banker">Banker</option>                                                            
+                                                <option value="Programmer">Programmer</option>                                                            
+                                                <option value="Private Service">Private Service Holder</option>                                                            
+                                                <option value="Business Owner">Business Owner</option>                                                            
+                                                <option value="CEO">CEO</option>                                                            
+                                                <option value="Founder">Founder</option>                                                            
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-sm-3">
-                                        <div class="form-submit-area">
-                                            <button type="submit" class="custom-btn su-form">Search</button>
-                                        </div>
+                                    <div class="form-submit">
+                                        <button type="submit" class="btn su-form">Search</button>
                                     </div>
                                 </div>
                             </form>
@@ -120,12 +124,626 @@
                     <!-- ROW END  -->
                 </div>
             </div>
+            <img class="couple" src="assets/img/couple.png" alt="couple">
         </div>
     </header>
-    <section class="" id=""></section>
-    <section class="" id=""></section>
-    <section class="" id=""></section>
-    <section class="" id=""></section>
+    <section class="featured" id="">
+        <div class="container">
+            <div class="featuredTop">
+                <div class="left">
+                    <h5>৩০০+ পাত্র পাত্রীর কালেকশান</h5>
+                    <h2 class="featured-title">এ সপ্তাহের ফিচারড পাত্র পাত্রী</h2>
+                </div>
+                <div class="right">
+                    <div class="tab bridetab">
+                        <button class="tablinks active" onclick="openTab('males', 'bridetab', event)">Featured Groom</button>
+                        <button class="tablinks" onclick="openTab('females', 'bridetab',event)">Featured Bride</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="featuredContent bridetab">
+            <!-- Tab content -->
+            <div id="males" class="tabcontent show">
+                <div class="maleslideContainer">
+                    <div class="swiper featureSlide">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <a href="#">
+                                <div class="f-img">
+                                    <img src="assets/img/slider/boy/1.jpg" alt="">
+                                </div>
+                                <div class="f-info">
+                                    <div class="f-into">
+                                        <span class="name">Shuvo Khan</span>
+                                        <span class="designation">Software Developer</span>
+                                    </div>
+                                </div>
+                                <div class="person-info">
+                                    <div class="p-details">
+                                        <ul>
+                                            <li>
+                                                <p class="ml-text">Age</p>
+                                                <p class="st-text">26</p>
+                                            </li>
+                                            <li>
+                                                <p class="ml-text">Height</p>
+                                                <p class="st-text">5 feet 7in </p>
+                                            </li>
+                                            <li>
+                                                <p class="ml-text">Religion</p>
+                                                <p class="st-text">Islam</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <button class="custom-btn-alt btn">
+                                        View More
+                                    </button>
+                                </div>
+                            </a>
+                          </div>
+                          <div class="swiper-slide">
+                            <a href="#">
+                                <div class="f-img">
+                                    <img src="assets/img/slider/boy/2.jpg" alt="">
+                                </div>
+                                <div class="f-info">
+                                    <div class="f-into">
+                                        <span class="name">Shuvo Khan</span>
+                                        <span class="designation">Software Developer</span>
+                                    </div>
+                                </div>
+                                <div class="person-info">
+                                    <div class="p-details">
+                                        <ul>
+                                            <li>
+                                                <p class="ml-text">Age</p>
+                                                <p class="st-text">26</p>
+                                            </li>
+                                            <li>
+                                                <p class="ml-text">Height</p>
+                                                <p class="st-text">5 feet 7in </p>
+                                            </li>
+                                            <li>
+                                                <p class="ml-text">Religion</p>
+                                                <p class="st-text">Islam</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <button class="custom-btn-alt btn">
+                                        View More
+                                    </button>
+                                </div>
+                            </a>
+                          </div>
+                          <div class="swiper-slide">
+                            <a href="#">
+                                <div class="f-img">
+                                    <img src="assets/img/slider/boy/3.jpg" alt="">
+                                </div>
+                                <div class="f-info">
+                                    <div class="f-into">
+                                        <span class="name">Shuvo Khan</span>
+                                        <span class="designation">Software Developer</span>
+                                    </div>
+                                </div>
+                                <div class="person-info">
+                                    <div class="p-details">
+                                        <ul>
+                                            <li>
+                                                <p class="ml-text">Age</p>
+                                                <p class="st-text">26</p>
+                                            </li>
+                                            <li>
+                                                <p class="ml-text">Height</p>
+                                                <p class="st-text">5 feet 7in </p>
+                                            </li>
+                                            <li>
+                                                <p class="ml-text">Religion</p>
+                                                <p class="st-text">Islam</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <button class="custom-btn-alt btn">
+                                        View More
+                                    </button>
+                                </div>
+                            </a>
+                          </div>
+                          <div class="swiper-slide">
+                            <a href="#">
+                                <div class="f-img">
+                                    <img src="assets/img/slider/boy/4.jpg" alt="">
+                                </div>
+                                <div class="f-info">
+                                    <div class="f-into">
+                                        <span class="name">Shuvo Khan</span>
+                                        <span class="designation">Software Developer</span>
+                                    </div>
+                                </div>
+                                <div class="person-info">
+                                    <div class="p-details">
+                                        <ul>
+                                            <li>
+                                                <p class="ml-text">Age</p>
+                                                <p class="st-text">26</p>
+                                            </li>
+                                            <li>
+                                                <p class="ml-text">Height</p>
+                                                <p class="st-text">5 feet 7in </p>
+                                            </li>
+                                            <li>
+                                                <p class="ml-text">Religion</p>
+                                                <p class="st-text">Islam</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <button class="custom-btn-alt btn">
+                                        View More
+                                    </button>
+                                </div>
+                            </a>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="females" class="tabcontent">
+                <div class="femaleslideContainer">
+                    <div class="swiper featureSlide">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="#">
+                                    <div class="f-img">
+                                        <img src="assets/img/slider/girl/1.jpeg" alt="">
+                                    </div>
+                                    <div class="f-info">
+                                        <div class="f-into">
+                                            <span class="name">Sumaia Islam</span>
+                                            <span class="designation">Service Holder</span>
+                                        </div>
+                                    </div>
+                                    <div class="person-info">
+                                        <div class="p-details">
+                                            <ul>
+                                                <li>
+                                                    <p class="ml-text">Age</p>
+                                                    <p class="st-text">23</p>
+                                                </li>
+                                                <li>
+                                                    <p class="ml-text">Height</p>
+                                                    <p class="st-text">5 feet 3in </p>
+                                                </li>
+                                                <li>
+                                                    <p class="ml-text">Religion</p>
+                                                    <p class="st-text">Islam</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <button class="custom-btn-alt btn">
+                                            View More
+                                        </button>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#">
+                                    <div class="f-img">
+                                        <img src="assets/img/slider/girl/2.jpg" alt="">
+                                    </div>
+                                    <div class="f-info">
+                                        <div class="f-into">
+                                            <span class="name">Sumaia Islam</span>
+                                            <span class="designation">Service Holder</span>
+                                        </div>
+                                    </div>
+                                    <div class="person-info">
+                                        <div class="p-details">
+                                            <ul>
+                                                <li>
+                                                    <p class="ml-text">Age</p>
+                                                    <p class="st-text">23</p>
+                                                </li>
+                                                <li>
+                                                    <p class="ml-text">Height</p>
+                                                    <p class="st-text">5 feet 3in </p>
+                                                </li>
+                                                <li>
+                                                    <p class="ml-text">Religion</p>
+                                                    <p class="st-text">Islam</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <button class="custom-btn-alt btn">
+                                            View More
+                                        </button>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#">
+                                    <div class="f-img">
+                                        <img src="assets/img/slider/girl/3.jpeg" alt="">
+                                    </div>
+                                    <div class="f-info">
+                                        <div class="f-into">
+                                            <span class="name">Sumaia Islam</span>
+                                            <span class="designation">Service Holder</span>
+                                        </div>
+                                    </div>
+                                    <div class="person-info">
+                                        <div class="p-details">
+                                            <ul>
+                                                <li>
+                                                    <p class="ml-text">Age</p>
+                                                    <p class="st-text">23</p>
+                                                </li>
+                                                <li>
+                                                    <p class="ml-text">Height</p>
+                                                    <p class="st-text">5 feet 3in </p>
+                                                </li>
+                                                <li>
+                                                    <p class="ml-text">Religion</p>
+                                                    <p class="st-text">Islam</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <button class="custom-btn-alt btn">
+                                            View More
+                                        </button>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="#">
+                                    <div class="f-img">
+                                        <img src="assets/img/slider/girl/4.jpeg" alt="">
+                                    </div>
+                                    <div class="f-info">
+                                        <div class="f-into">
+                                            <span class="name">Sumaia Islam</span>
+                                            <span class="designation">Service Holder</span>
+                                        </div>
+                                    </div>
+                                    <div class="person-info">
+                                        <div class="p-details">
+                                            <ul>
+                                                <li>
+                                                    <p class="ml-text">Age</p>
+                                                    <p class="st-text">23</p>
+                                                </li>
+                                                <li>
+                                                    <p class="ml-text">Height</p>
+                                                    <p class="st-text">5 feet 3in </p>
+                                                </li>
+                                                <li>
+                                                    <p class="ml-text">Religion</p>
+                                                    <p class="st-text">Islam</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <button class="custom-btn-alt btn">
+                                            View More
+                                        </button>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <section class="links-section">
+        <!-- CONTAINER  -->
+        <div class="container">
+            <div class="left">
+                <div class="linkimage">
+                    <div class="dealer-product mb-4">
+                        <img src="assets/img/1.jpg" alt="" class="dealer-product-img">
+                        <a href="#" class="dealer-contact">
+                            <div class="dealer-contact-info">
+                                <h4>MISSION</h4>
+                                <p class="contact-btn">Learn More <img src="assets/img/right.svg" alt=""></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="linkimage">
+                    <div class="dealer-product mb-4">
+                        <img src="assets/img/1.jpg" alt="" class="dealer-product-img">
+                        <a href="#" class="dealer-contact">
+                            <div class="dealer-contact-info">
+                                <h4>SEARCH</h4>
+                                <p class="contact-btn">Learn More <img src="assets/img/right.svg" alt=""></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="middle">
+                <div class="dealer-info">
+                    <div class="info-inner">
+                        <p class="sm-title">
+                            shuvokaj.com
+                        </p>
+                        <h2 class="dealer-title">
+                            We strive to deliver good quality services
+                        </h2>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+
+                        <div class="signature-area">
+                            <img src="assets/img/signature.png" alt="">
+                            <p class="dealer-name">Rifat Hasan. (CEO)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="linkimage">
+                    <div class="dealer-product mb-4">
+                        <img src="assets/img/1.jpg" alt="" class="dealer-product-img">
+                        <a href="#" class="dealer-contact">
+                            <div class="dealer-contact-info">
+                                <h4>ABOUT US</h4>
+                                <p class="contact-btn">Learn More <img src="assets/img/right.svg" alt=""></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="linkimage">
+                    <div class="dealer-product mb-4">
+                        <img src="assets/img/1.jpg" alt="" class="dealer-product-img">
+                        <a href="#" class="dealer-contact">
+                            <div class="dealer-contact-info">
+                                <h4>CONTACT</h4>
+                                <p class="contact-btn">Learn More <img src="assets/img/right.svg" alt=""></p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CONTAINER END  -->
+    </div>
+    <!-- DEALER END  -->
+    </section>
+    
+
+    <!-- Modals -->
+    <!-- Login Modal -->
+    <div id="loginmodal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img class="loginlogo" src="assets/img/logo-colored.svg" alt="Logo">
+            <form id="loginform">
+                <div class="form-group">
+                    <label for="name">Username/Email *</label>
+                    <input type="text" id="l1" class="form-control" placeholder="Email ">
+                </div>
+                <div class="form-group">
+                    <label for="name">Password *</label>
+                    <input type="password" id="l2" class="form-control" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <a href="javascript:void(0)" onclick="openModal('registermodal')">Create an account</a>
+                    <button type="submit" id="loginsubtn" value="login">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registermodal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img class="loginlogo" src="assets/img/logo-colored.svg" alt="Logo">
+            <form id="registerform">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="r1" class="form-control" placeholder="Name *">
+                </div>
+                <div class="form-group">
+                    <label for="name">Password *</label>
+                    <input type="password" id="r2" class="form-control" placeholder="Password *">
+                </div>
+                <div class="form-group">
+                    Already have an account?
+                    <a href="javascript:void(0)" onclick="openModal('loginmodal')">Login here.</a>
+                    <button type="submit" id="loginsubtn" value="login">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <footer>
+        <div class="footer-area">
+            <div class="menu-header footer-menu">
+                <div class="container">
+                    <div class="navigation-inner">
+                        <div class="logo">
+                            <a href="" class="logo-link"><img src="assets/img/logo-colored.svg" alt="Logo"></a>
+                        </div>
+                        <div class="menu">
+                            <ul class="menu-ul">
+                                <li><a href="/" class="nav-link active">Home</a></li>
+                                <li><a href="mission.html" class="nav-link ">Mission</a></li>
+                                <li><a href="about.html" class="nav-link ">About Us</a></li>
+                                <li><a href="faq.html" class="nav-link ">FAQ</a></li>
+                                <li><a href="advertisment.html" class="nav-link ">ADs</a></li>
+                                <li><a href="privacy.html" class="nav-link ">Privacy Plicy</a></li>
+                                <!--<li><a href="/about.php" class="nav-link ">Over ons</a></li>-->
+                                <li><a href="contact.html" class="nav-link ">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-info">
+                        <div class="f-info-left">
+                            <div class="footer-toggle-btn">
+                                <div class="shfooter">
+                                    <div class="d-md-none colleps-border  title" data-bs-target="#address" data-bs-toggle="collapse">
+                                        <div class="mt-3 colleps-ind">
+                                            <h2 class="colleps-button">General Information</h2>
+                                            <div class="float-right navbar-toggler">
+                                                <i class="icofont-rounded-down"></i>
+                                                <i class="icofont-rounded-up"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="address-area collapse list-unstyled" id="address">
+                                        <ul class="address-ul">
+                                            <li><img src="assets/img/f-mail.svg" alt="" class="address-icon">
+                                                <a href="mailto:info@hsvautos.nl">info@shuvokaj.com</a>
+                                            </li>
+                                            <li><img src="assets/img/f-phone.svg" alt="" class="address-icon">
+                                                <a href="tel:+880 1768-448869">+880 1768-448869</a>
+                                            </li>
+                                            <li><img src="assets/img/f-whats-app.svg" alt="" class="address-icon">
+                                                <a href="https://wa.me/310622376969">+880 1768-448869</a>
+                                            </li>
+                                            <li><img src="assets/img/location.svg" alt="" class="address-icon">
+                                                <a target="_blank" href="#">130 Radha Streed, Dinajpur, Bangladesh</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="f-info-right">
+                            <div class="footer-toggle-btn">
+                                <div class="shfooter">
+                                    <h5 class="my-2 d-none d-md-block">Office Time</h5>
+                                    <div class="d-md-none colleps-border  title" data-bs-target="#shedul" data-bs-toggle="collapse">
+                                        <div class="mt-3 colleps-ind">
+                                            <h2 class="colleps-button">Office Time</h2>
+                                            <div class="float-right navbar-toggler">
+                                                <i class="icofont-rounded-down"></i>
+                                                <i class="icofont-rounded-up"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="address-area collapse list-unstyled" id="shedul">
+                                        <div class="table-responsive">
+                                            <table class="table table-borderless">
+                                                <tbody class="shedul-table">
+                                                    <tr>
+                                                        <td>Sunday:</td>
+                                                        <td>09.00 am - 05:00 pm</td>
+                                                        <td>Monday:</td>
+                                                        <td>09.00 am - 05:00 pm</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tuesday:</td>
+                                                        <td>09.00 am - 05:00 pm</td>
+                                                        <td>Wednesday:</td>
+                                                        <td>09.00 am - 05:00 pm</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Thrusday:</td>
+                                                        <td>09.00 am - 05:00 pm</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="footer-maps">
+                        <div class="footer-toggle-btn">
+                            <div class="shfooter">
+                                <div class="d-md-none colleps-border title" data-bs-target="#map" data-bs-toggle="collapse">
+                                    <div class="mt-3 colleps-ind">
+                                        <h2 class="colleps-button">Maps</h2>
+                                        <div class="float-right navbar-toggler">
+                                            <i class="icofont-rounded-down"></i>
+                                            <i class="icofont-rounded-up"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="address-area collapse list-unstyled" id="map">
+                                    <div class="footer-map">
+                                        <div class="map mapboxgl-map" id="footerMap"><div class="mapboxgl-canary" style="visibility: hidden;"></div><div class="mapboxgl-canvas-container mapboxgl-interactive mapboxgl-touch-drag-pan mapboxgl-touch-zoom-rotate"><canvas class="mapboxgl-canvas" tabindex="0" aria-label="Map" role="region" width="383" height="140" style="width: 383px; height: 140px;"></canvas><div aria-label="Map marker" class="mapboxgl-marker mapboxgl-marker-anchor-center" style="transform: translate(-50%, -50%) translate(192px, 56px) rotateX(0deg) rotateZ(0deg);"><svg display="block" height="41px" width="27px" viewBox="0 0 27 41"><g fill-rule="nonzero"><g transform="translate(3.0, 29.0)" fill="#000000"><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="10.5" ry="5.25002273"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="9.5" ry="4.77275007"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="8.5" ry="4.29549936"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="7.5" ry="3.81822308"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="6.5" ry="3.34094679"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="5.5" ry="2.86367051"></ellipse><ellipse opacity="0.04" cx="10.5" cy="5.80029008" rx="4.5" ry="2.38636864"></ellipse></g><g fill="#D2121C"><path d="M27,13.5 C27,19.074644 20.250001,27.000002 14.75,34.500002 C14.016665,35.500004 12.983335,35.500004 12.25,34.500002 C6.7499993,27.000002 0,19.222562 0,13.5 C0,6.0441559 6.0441559,0 13.5,0 C20.955844,0 27,6.0441559 27,13.5 Z"></path></g><g opacity="0.25" fill="#000000"><path d="M13.5,0 C6.0441559,0 0,6.0441559 0,13.5 C0,19.222562 6.7499993,27 12.25,34.5 C13,35.522727 14.016664,35.500004 14.75,34.5 C20.250001,27 27,19.074644 27,13.5 C27,6.0441559 20.955844,0 13.5,0 Z M13.5,1 C20.415404,1 26,6.584596 26,13.5 C26,15.898657 24.495584,19.181431 22.220703,22.738281 C19.945823,26.295132 16.705119,30.142167 13.943359,33.908203 C13.743445,34.180814 13.612715,34.322738 13.5,34.441406 C13.387285,34.322738 13.256555,34.180814 13.056641,33.908203 C10.284481,30.127985 7.4148684,26.314159 5.015625,22.773438 C2.6163816,19.232715 1,15.953538 1,13.5 C1,6.584596 6.584596,1 13.5,1 Z"></path></g><g transform="translate(6.0, 7.0)" fill="#FFFFFF"></g><g transform="translate(8.0, 8.0)"><circle fill="#000000" opacity="0.25" cx="5.5" cy="5.5" r="5.4999962"></circle><circle fill="#FFFFFF" cx="5.5" cy="5.5" r="5.4999962"></circle></g></g></svg></div></div><div class="mapboxgl-control-container"><div class="mapboxgl-ctrl-top-left"></div><div class="mapboxgl-ctrl-top-right"></div><div class="mapboxgl-ctrl-bottom-left"><div class="mapboxgl-ctrl" style="display: block;"><a class="mapboxgl-ctrl-logo" target="_blank" rel="noopener nofollow" href="https://www.mapbox.com/" aria-label="Mapbox logo"></a></div></div><div class="mapboxgl-ctrl-bottom-right"><div class="mapboxgl-ctrl mapboxgl-ctrl-attrib mapboxgl-compact"><button class="mapboxgl-ctrl-attrib-button" type="button" title="Toggle attribution" aria-label="Toggle attribution"></button><div class="mapboxgl-ctrl-attrib-inner" role="list"><a href="https://www.mapbox.com/about/maps/" target="_blank" title="Mapbox" aria-label="Mapbox" role="listitem">© Mapbox</a> <a href="https://www.openstreetmap.org/about/" target="_blank" title="OpenStreetMap" aria-label="OpenStreetMap" role="listitem">© OpenStreetMap</a> <a class="mapbox-improve-map" href="https://apps.mapbox.com/feedback/?owner=mapbox&amp;id=light-v10&amp;access_token=pk.eyJ1IjoiYW1hbmRhbGFwYSIsImEiOiJjazY2cjdkcjAwNDY4M2VwODFyZnZpbDg5In0.yZurTAPPw4f1D-VkffaHpw" target="_blank" title="Map feedback" aria-label="Map feedback" role="listitem" rel="noopener nofollow">Improve this map</a></div></div></div></div></div>
+                                    </div>
+                                    <div class="location">
+                                        <img src="assets/img/icon/location.svg" alt="" class="address-icon">
+                                        <a target="_blank" href="https://www.google.com/maps/place/HSV+Auto's+BV/@52.2980173,5.9860306,484m/data=!3m1!1e3!4m5!3m4!1s0x47c7c66e53b47a37:0xe98bb49f9045b2d0!8m2!3d52.298014!4d5.9882193" class="under-map">130 Radha Streed, Dinajpur,<br> Bangladesh</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-toggle-btn copy-toggle">
+                    <div class="shfooter">
+                        <div class="d-md-none colleps-border title" data-bs-target="#copyright" data-bs-toggle="collapse">
+                            <div class="mt-3 colleps-ind">
+                                <h2 class="colleps-button">Copyright</h2>
+                                <div class="float-right navbar-toggler">
+                                    <i class="icofont-rounded-down"></i>
+                                    <i class="icofont-rounded-up"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="last-footer collapse list-unstyled" id="copyright">
+                            <div class="copy-sec">
+                                <h5>Copyright © 2022 Shuvokaj All rights reserved.</h5>
+                            </div>
+                            <div class="right-area">
+                                <div class="footer-social">
+                                    <div class="barnd-logo">
+                                        <img src="assets/img/rwd.png" class="barnd-img" alt="">
+                                        <img src="assets/img/nap.png" class="barnd-img" alt="">
+                                    </div>
+
+                                    <div class="social">
+                                        <ul>
+                                            <li>
+                                                <a href="#" class="social-link" target="_blank">
+                                                    <svg width="12" height="22" viewBox="0 0 12 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M8.08894 12.5763H10.7159L11.7667 8.37312H8.08894V6.27154C8.08894 5.18922 8.08894 4.16996 10.1905 4.16996H11.7667V0.639298C11.4241 0.594114 10.1306 0.492188 8.76459 0.492188C5.9117 0.492188 3.88577 2.23335 3.88577 5.43091V8.37312H0.733398V12.5763H3.88577V21.508H8.08894V12.5763Z" fill=""></path>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="social-link" target="_blank">
+                                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M16.1175 6.65175C16.8139 6.65175 17.3784 6.0872 17.3784 5.3908C17.3784 4.6944 16.8139 4.12985 16.1175 4.12985C15.4211 4.12985 14.8565 4.6944 14.8565 5.3908C14.8565 6.0872 15.4211 6.65175 16.1175 6.65175Z" fill=""></path>
+                                                        <path d="M10.5076 5.604C9.44044 5.604 8.39722 5.92046 7.50988 6.51336C6.62254 7.10626 5.93095 7.94897 5.52255 8.93493C5.11415 9.92088 5.0073 11.0058 5.2155 12.0525C5.4237 13.0992 5.9376 14.0606 6.69222 14.8152C7.44683 15.5698 8.40828 16.0837 9.45496 16.2919C10.5016 16.5001 11.5866 16.3933 12.5725 15.9849C13.5585 15.5765 14.4012 14.8849 14.9941 13.9976C15.587 13.1102 15.9034 12.067 15.9034 10.9998C15.9034 9.56876 15.335 8.19631 14.323 7.1844C13.3111 6.17249 11.9387 5.604 10.5076 5.604ZM10.5076 14.5025C9.81488 14.5025 9.13768 14.297 8.56167 13.9122C7.98566 13.5273 7.53672 12.9802 7.27162 12.3402C7.00651 11.7002 6.93715 10.9959 7.0723 10.3165C7.20745 9.63704 7.54104 9.01293 8.03089 8.52308C8.52075 8.03322 9.14486 7.69963 9.8243 7.56448C10.5037 7.42933 11.208 7.49869 11.848 7.7638C12.4881 8.02891 13.0351 8.47785 13.42 9.05386C13.8048 9.62986 14.0103 10.3071 14.0103 10.9998C14.0103 11.9288 13.6412 12.8197 12.9844 13.4766C12.3275 14.1334 11.4366 14.5025 10.5076 14.5025Z" fill=""></path>
+                                                        <path d="M10.5079 2.38536C13.3135 2.38536 13.6463 2.39587 14.754 2.44666C15.4202 2.45457 16.0801 2.5769 16.705 2.80831C17.1582 2.98317 17.5699 3.25099 17.9135 3.59454C18.257 3.93809 18.5248 4.34976 18.6997 4.80306C18.9311 5.42787 19.0534 6.08779 19.0613 6.75403C19.1121 7.86174 19.1226 8.19449 19.1226 11.001C19.1226 13.8075 19.1121 14.1385 19.0613 15.2462C19.0534 15.9124 18.9311 16.5723 18.6997 17.1971C18.5248 17.6504 18.257 18.0621 17.9135 18.4057C17.5699 18.7492 17.1582 19.017 16.705 19.1919C16.0801 19.4233 15.4202 19.5456 14.754 19.5535C13.6463 19.6043 13.3135 19.6148 10.5079 19.6148C7.7023 19.6148 7.36955 19.6043 6.26184 19.5535C5.5956 19.5456 4.93568 19.4233 4.31087 19.1919C3.85757 19.017 3.44591 18.7492 3.10235 18.4057C2.7588 18.0621 2.49098 17.6504 2.31612 17.1971C2.08471 16.5723 1.96238 15.9124 1.95447 15.2462C1.90368 14.1385 1.89318 13.8057 1.89318 11.0001C1.89318 8.19449 1.90368 7.86174 1.95447 6.75403C1.96238 6.08779 2.08471 5.42787 2.31612 4.80306C2.49098 4.34976 2.7588 3.93809 3.10235 3.59454C3.44591 3.25099 3.85757 2.98317 4.31087 2.80831C4.93568 2.5769 5.5956 2.45457 6.26184 2.44666C7.36955 2.39587 7.7023 2.38536 10.5079 2.38536ZM10.5079 0.492188C7.65414 0.492188 7.29599 0.504447 6.17515 0.555235C5.30367 0.572832 4.44148 0.738046 3.62523 1.04385C2.92709 1.31382 2.29305 1.72667 1.76377 2.25596C1.23448 2.78524 0.821629 3.41927 0.551665 4.11742C0.245761 4.93395 0.0805461 5.79644 0.0630475 6.66821C0.0122593 7.78906 0 8.14545 0 11.0001C0 13.8547 0.0122593 14.212 0.0630475 15.3329C0.0806448 16.2043 0.245858 17.0665 0.551665 17.8828C0.821629 18.5809 1.23448 19.215 1.76377 19.7442C2.29305 20.2735 2.92709 20.6864 3.62523 20.9563C4.44176 21.2622 5.30425 21.4275 6.17602 21.445C7.29687 21.4957 7.65414 21.508 10.5079 21.508C13.3617 21.508 13.7198 21.4957 14.8407 21.445C15.7124 21.4275 16.5749 21.2622 17.3915 20.9563C18.0896 20.6864 18.7236 20.2735 19.2529 19.7442C19.7822 19.215 20.1951 18.5809 20.465 17.8828C20.7706 17.0662 20.9356 16.2037 20.9528 15.332C21.0036 14.2111 21.0158 13.8547 21.0158 11.0001C21.0158 8.14545 21.0036 7.78818 20.9528 6.66734C20.9352 5.79586 20.77 4.93367 20.4642 4.11742C20.1942 3.41927 19.7813 2.78524 19.2521 2.25596C18.7228 1.72667 18.0887 1.31382 17.3906 1.04385C16.574 0.738248 15.7115 0.573329 14.8398 0.556111C13.719 0.503571 13.3626 0.492188 10.5079 0.492188Z" fill=""></path>
+                                                        </svg>
+
+
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="backto-top">
+                                        <a href="#header" class="back-link">Go to Top <img src="assets/img/top.svg" alt=""></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
 
     <script type="text/javascript" src="assets/js/plugin.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
